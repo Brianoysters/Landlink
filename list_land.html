@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Land - LandLink</title>
+    <link rel="icon" type="image/jpg" href="image.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>List Your Land on LandLink</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="list_land.html">List Your Land</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="content">
+        <h2>List Your Land</h2>
+        <form action="add_land.php" method="POST">
+            <label for="owner_name">Owner Name</label>
+            <input type="text" id="owner_name" name="owner_name" required>
+
+            <label for="phone_number">Phone Number</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+
+            <label for="title_deed_number">Title Deed Number</label>
+            <input type="text" id="title_deed_number" name="title_deed_number" required>
+
+            <label for="government_search_certificate">Government Search Certificate</label>
+            <input type="text" id="government_search_certificate" name="government_search_certificate" required>
+
+            <label for="folio_registry_number">Folio Registry Number</label>
+            <input type="text" id="folio_registry_number" name="folio_registry_number" required>
+
+            <label for="coordinates">Coordinates (latitude,longitude)</label>
+            <input type="text" id="coordinates" name="coordinates" required>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+    <section class="listings">
+        <h2>Available Land Listings</h2>
+        <div class="listing">
+            <h3>Owner Name: ALICE KATE</h3>
+            <p>Phone Number: +254-456-789000</p>
+            <p>Title Deed Number: ABC12345</p>
+            <p>Government Search Certificate: XYZ98765</p>
+            <p>Folio Registry Number: FR123456</p>
+            <p>Coordinates: <span class="coordinates">-1.2921,36.8219</span></p>
+            <button class="view-map-btn" data-coordinates="-1.2921,36.8219">View on Map</button>
+        </div>
+        <!-- Add more listings as needed -->
+    </section>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([-1.2921, 36.8219], 10); // Default view
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        document.querySelectorAll('.view-map-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const coordinates = button.getAttribute('data-coordinates').split(',');
+                map.setView([parseFloat(coordinates[0]), parseFloat(coordinates[1])], 15);
+                L.marker([parseFloat(coordinates[0]), parseFloat(coordinates[1])]).addTo(map);
+            });
+        });
+    </script>
+</body>
+</html>
