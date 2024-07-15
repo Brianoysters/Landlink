@@ -2,6 +2,7 @@
 
 LandLink is a comprehensive platform designed to simplify the process of finding and leasing land. Whether you're a lessee searching for the perfect piece of land or a lessor looking to lease out your property, LandLink offers a user-friendly interface and robust functionality to meet your needs.
 
+- Deployed project youtube link: https://youtu.be/YPguxAvgFxk?si=5v_hc2BrEODuy25-
 - Deployed Site: [LandLink](https://brianoysters.github.io/Landlink)
 - Project Blog Article: [Final Project Blog](https://www.linkedin.com/feed/update/urn:li:groupPost:853857-7216035296033832961/)
 - Author: [Brian Otieno Otieno](https://www.linkedin.com/in/brian-otieno-otieno-1aa10616b/)
