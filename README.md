@@ -16,7 +16,7 @@ To run this project locally, follow these steps:
    cd landlink
    ```
 
-2. Set up XAMPP:
+2. Set up XAMPP database:
    - Download and install [XAMPP](https://www.apachefriends.org/index.html).
    - Start Apache and MySQL from the XAMPP control panel.
 
